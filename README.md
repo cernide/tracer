@@ -1,9 +1,9 @@
 [![License: Apache 2](https://img.shields.io/badge/License-apache2-green.svg)](LICENSE)
-[![TraceML](https://github.com/polyaxon/traceml/actions/workflows/traceml.yml/badge.svg)](https://github.com/polyaxon/traceml/actions/workflows/traceml.yml)
+[![TraceML](https://github.com/cernide/traceml/actions/workflows/traceml.yml/badge.svg)](https://github.com/cernide/traceml/actions/workflows/traceml.yml)
 [![Slack](https://img.shields.io/badge/chat-on%20slack-aadada.svg?logo=slack&longCache=true)](https://polyaxon.com/slack/)
 [![Docs](https://img.shields.io/badge/docs-stable-brightgreen.svg?style=flat)](https://polyaxon.com/docs/)
-[![GitHub](https://img.shields.io/badge/issue_tracker-github-blue?logo=github)](https://github.com/polyaxon/polyaxon/issues)
-[![GitHub](https://img.shields.io/badge/roadmap-github-blue?logo=github)](https://github.com/polyaxon/polyaxon/milestones)
+[![GitHub](https://img.shields.io/badge/issue_tracker-github-blue?logo=github)](https://github.com/cernide/cernide/issues)
+[![GitHub](https://img.shields.io/badge/roadmap-github-blue?logo=github)](https://github.com/cernide/cernide/milestones)
 
 <a href="https://polyaxon.com"><img src="https://raw.githubusercontent.com/polyaxon/polyaxon/master/artifacts/packages/traceml.svg" width="125" height="125" align="right" /></a>
 
@@ -29,7 +29,7 @@ pip install polyaxon traceml
 
 ## Offline usage
 
-You can enable the offline mode to track runs without an  API:
+You can enable the offline mode to track runs without an API:
 
 ```bash
 export POLYAXON_OFFLINE="true"
@@ -459,17 +459,16 @@ Name: A, dtype: object
 
 ### [WIP] Summaries
 
- * [ ] Add summary analysis between columns, i.e. `dfs[[1, 2]]`
+- [ ] Add summary analysis between columns, i.e. `dfs[[1, 2]]`
 
 ### [WIP] Visualizations
 
- * [ ] Add summary visualization with matplotlib.
- * [ ] Add summary visualization with plotly.
- * [ ] Add summary visualization with altair.
- * [ ] Add predefined profiling.
-
+- [ ] Add summary visualization with matplotlib.
+- [ ] Add summary visualization with plotly.
+- [ ] Add summary visualization with altair.
+- [ ] Add predefined profiling.
 
 ### [WIP] Catalog and Versions
 
- * [ ] Add possibility to persist summary and link to a specific version.
- * [ ] Integrate with quality libraries.
+- [ ] Add possibility to persist summary and link to a specific version.
+- [ ] Integrate with quality libraries.
