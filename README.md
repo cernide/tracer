@@ -1,26 +1,26 @@
 [![License: Apache 2](https://img.shields.io/badge/License-apache2-green.svg)](LICENSE)
-[![TraceML](https://github.com/cernide/traceml/actions/workflows/traceml.yml/badge.svg)](https://github.com/cernide/traceml/actions/workflows/traceml.yml)
+[![Tracer](https://github.com/cernide/tracer/actions/workflows/tracer.yml/badge.svg)](https://github.com/cernide/tracer/actions/workflows/tracer.yml)
 [![Slack](https://img.shields.io/badge/chat-on%20slack-aadada.svg?logo=slack&longCache=true)](https://polyaxon.com/slack/)
 [![Docs](https://img.shields.io/badge/docs-stable-brightgreen.svg?style=flat)](https://polyaxon.com/docs/)
 [![GitHub](https://img.shields.io/badge/issue_tracker-github-blue?logo=github)](https://github.com/cernide/cernide/issues)
 [![GitHub](https://img.shields.io/badge/roadmap-github-blue?logo=github)](https://github.com/cernide/cernide/milestones)
 
-<a href="https://polyaxon.com"><img src="https://raw.githubusercontent.com/polyaxon/polyaxon/master/artifacts/packages/traceml.svg" width="125" height="125" align="right" /></a>
+<a href="https://polyaxon.com"><img src="https://raw.githubusercontent.com/polyaxon/polyaxon/master/artifacts/packages/tracer.svg" width="125" height="125" align="right" /></a>
 
-# TraceML
+# Tracer
 
 Engine for ML/Data tracking, visualization, explainability, drift detection, and dashboards for Polyaxon.
 
 ## Install
 
 ```bash
-pip install traceml
+pip install tracer
 ```
 
 If you would like to use the tracking features, you need to install `polyaxon` as well:
 
 ```bash
-pip install polyaxon traceml
+pip install polyaxon tracer
 ```
 
 ## [WIP] Local sandbox
@@ -38,7 +38,7 @@ export POLYAXON_OFFLINE="true"
 Or passing the offline flag
 
 ```python
-from traceml import tracking
+from tracer import tracking
 
 tracking.init(..., is_offline=True, ...)
 ```
@@ -48,13 +48,13 @@ tracking.init(..., is_offline=True, ...)
 ```python
 import random
 
-import traceml as tracking
+import tracer as tracking
 
 tracking.init(
     is_offline=True,
     project='quick-start',
     name="my-new-run",
-    description="trying TraceML",
+    description="trying Tracer",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -95,17 +95,17 @@ tracking.stop()
 
 ### Keras
 
-You can use TraceML's callback to automatically save all metrics and collect outputs and models, you can also track additional information using the logging methods:
+You can use Tracer's callback to automatically save all metrics and collect outputs and models, you can also track additional information using the logging methods:
 
 ```python
-from traceml import tracking
-from traceml.integrations.keras import Callback
+from tracer import tracking
+from tracer.integrations.keras import Callback
 
 tracking.init(
     is_offline=True,
     project='tracking-project',
     name="keras-run",
-    description="trying TraceML & Keras",
+    description="trying Tracer & Keras",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -138,13 +138,13 @@ model.fit(
 You can log metrics, inputs, and outputs of Pytorch experiments using the tracking module:
 
 ```python
-from traceml import tracking
+from tracer import tracking
 
 tracking.init(
     is_offline=True,
     project='tracking-project',
     name="pytorch-run",
-    description="trying TraceML & PyTorch",
+    description="trying Tracer & PyTorch",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -176,14 +176,14 @@ tracking.log_artifact_ref(asset_path, framework="pytorch", ...)
 You can log metrics, outputs, and models of Tensorflow experiments and distributed Tensorflow experiments using the tracking module:
 
 ```python
-from traceml import tracking
-from traceml.integrations.tensorflow import Callback
+from tracer import tracking
+from tracer.integrations.tensorflow import Callback
 
 tracking.init(
     is_offline=True,
     project='tracking-project',
     name="tf-run",
-    description="trying TraceML & Tensorflow",
+    description="trying Tracer & Tensorflow",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -204,14 +204,14 @@ estimator.train(hooks=[Callback(log_image=True, log_histo=True, log_tensor=True)
 You can log metrics, outputs, and models of Fastai experiments using the tracking module:
 
 ```python
-from traceml import tracking
-from traceml.integrations.fastai import Callback
+from tracer import tracking
+from tracer.integrations.fastai import Callback
 
 tracking.init(
     is_offline=True,
     project='tracking-project',
     name="fastai-run",
-    description="trying TraceML & Fastai",
+    description="trying Tracer & Fastai",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -225,14 +225,14 @@ learn.fit(..., cbs=[Callback()])
 You can log metrics, outputs, and models of Pytorch Lightning experiments using the tracking module:
 
 ```python
-from traceml import tracking
-from traceml.integrations.pytorch_lightning import Callback
+from tracer import tracking
+from tracer.integrations.pytorch_lightning import Callback
 
 tracking.init(
     is_offline=True,
     project='tracking-project',
     name="pytorch-lightning-run",
-    description="trying TraceML & Lightning",
+    description="trying Tracer & Lightning",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -251,14 +251,14 @@ trainer = pl.Trainer(
 You can log metrics, outputs, and models of HuggingFace experiments using the tracking module:
 
 ```python
-from traceml import tracking
-from traceml.integrations.hugging_face import Callback
+from tracer import tracking
+from tracer.integrations.hugging_face import Callback
 
 tracking.init(
     is_offline=True,
     project='tracking-project',
     name="hg-run",
-    description="trying TraceML & HuggingFace",
+    description="trying Tracer & HuggingFace",
     tags=["examples"],
     artifacts_path="path/to/artifacts/repo"
 )
@@ -284,7 +284,7 @@ import plotly.express as px
 from bokeh.plotting import figure
 from vega_datasets import data
 
-from traceml import tracking
+from tracer import tracking
 
 
 def plot_mpl_figure(step):
@@ -386,7 +386,7 @@ The module contains `DataFrameSummary` object that extend `describe()` with:
 The `DataFrameSummary` expect a pandas `DataFrame` to summarise.
 
 ```python
-from traceml.summary.df import DataFrameSummary
+from tracer.summary.df import DataFrameSummary
 
 dfs = DataFrameSummary(df)
 ```
